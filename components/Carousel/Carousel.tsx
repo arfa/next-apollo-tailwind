@@ -1,10 +1,10 @@
-import React, { useLayoutEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 import clsx from 'clsx';
 import { Button } from '../Button/Button';
 import { Card, CardMediaProps } from '../Card/Card';
 import { useSpringCarousel } from 'react-spring-carousel';
 import { ArrowIcon } from '../Icon/ArrowIcon';
-import useMediaQuery, { BREAKPOINTS } from './mediaQuery';
+import useMediaQuery, { BREAKPOINTS } from './useMediaQuery';
 
 export interface CarouselProps {
   items: ({ id: string } & CardMediaProps)[];
@@ -16,13 +16,16 @@ export const Carousel = (props: CarouselProps) => {
   const isDescktop = useMediaQuery(`(min-width: ${BREAKPOINTS.desktopSM}px)`);
   const isTablet = useMediaQuery(`(min-width: ${BREAKPOINTS.tabletSM}px)`);
   const isMobile = useMediaQuery(`(min-width: ${BREAKPOINTS.mobile}px)`);
+  const isMobileSM = useMediaQuery(`(min-width: ${BREAKPOINTS.mobileSM}px)`);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (isDescktop) {
       setItemsPerSlide(6);
     } else if (isTablet) {
       setItemsPerSlide(4);
     } else if (isMobile) {
+      setItemsPerSlide(2);
+    } else if (isMobileSM) {
       setItemsPerSlide(1);
     }
   }, [isDescktop, isTablet, isMobile]);

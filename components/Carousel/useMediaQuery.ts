@@ -1,6 +1,9 @@
+// source: https://usehooks-ts.com/react-hook/use-media-query
+
 import { useEffect, useState } from 'react';
 
 export const BREAKPOINTS = {
+  mobileSM: 320,
   mobile: 480,
   tabletSM: 768,
   tabletM: 1024,
