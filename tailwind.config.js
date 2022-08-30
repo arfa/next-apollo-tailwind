@@ -2,7 +2,13 @@
 module.exports = {
   content: ['./pages/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        gray: {
+          750: '#313132',
+        },
+      },
+    },
   },
   plugins: [],
 };
