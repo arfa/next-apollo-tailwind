@@ -2,8 +2,8 @@ import { gql } from '@apollo/client';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import { Carousel } from '../components/Carousel/Carousel';
+import { mapResponseToCard } from '../components/Card/Card.utility';
 import client from '../apollo-client';
-import { mapResponseToCard } from '../components/Carousel/Card.utility';
 
 export async function getServerSideProps() {
   const { data } = await client.query({

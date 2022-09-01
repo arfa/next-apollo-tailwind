@@ -1,4 +1,4 @@
-import { CardMediaPropsWithId } from '../Card/Card';
+import { CardMediaPropsWithId } from './Card';
 
 export const mapResponseToCard = (response: any): CardMediaPropsWithId[] => {
   if (!response) return [];
